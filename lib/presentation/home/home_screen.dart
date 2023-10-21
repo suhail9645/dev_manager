@@ -1,5 +1,6 @@
 import 'package:dev_manage/manager/font_manager.dart';
 import 'package:dev_manage/manager/space_manager.dart';
+import 'package:dev_manage/presentation/add_edit/add_edit_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -31,9 +32,9 @@ class HomeScreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(15)),
                         child: Center(
                           child: ListTile(
-                            contentPadding:const  EdgeInsets.symmetric(
+                            contentPadding: const EdgeInsets.symmetric(
                                 horizontal: 6, vertical: 0),
-                            leading:const CircleAvatar(
+                            leading: const CircleAvatar(
                               radius: 34,
                               backgroundImage: NetworkImage(
                                   'https://newprofilepic.photo-cdn.net//assets/images/article/profile.jpg'),
@@ -61,12 +62,18 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
-    floatingActionButton: FloatingActionButton(
-      backgroundColor: Colors.amber,
-      child:const Icon(Icons.add,size: 35,color: Colors.black,),
-      onPressed: () {
-      
-    },),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.amber,
+        child: const Icon(
+          Icons.add,
+          size: 35,
+          color: Colors.black,
+        ),
+        onPressed: () {
+          Navigator.pushNamed(context, '/AddOrEdit Screen',
+              arguments: const AddEditScreen(addOrEdit: AddOrEdit.devAdd));
+        },
+      ),
     );
   }
 }
